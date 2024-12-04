@@ -8,33 +8,23 @@
             <div>
                 <div>
                     <h3 class="text-2xl font-semibold mb-4">Notre Histoire</h3>
-                    <p>Créée en 2015 par une équipe jeune et ambitieuse, Gozen Service a pour mission de transformer la gestion des ressources humaines en un levier de performance pour ses clients.</p>
-                    <p class="mt-4">Nous proposons des solutions innovantes dans le recrutement, la formation, le coaching et le conseil en organisation pour aider les entreprises à atteindre leurs objectifs avec les bonnes ressources humaines.</p>
+                    <p>
+                       {{gozen.description.p1}}
+                    </p>
+                    <p class="mt-4">{{gozen.description.p2}}</p>
                 </div>
                 <div class="socials w-full flex flex-col space-y-2 items-center">
                     <h2 class="text-xl font-semibold mt-12">Nous sommes aussi présents sur les réseaux</h2>
                     <p class="flex space-x-4 text-2xl">
-                        <a 
-                            class="text-blue-700  text-2xl border-2 w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#AF4E64] border-[#AF4E64] hover:text-white" 
-                            href="https://www.linkedin.com"
+                        @for(social of gozen.socials; track social.id) {
+                            <a 
+                                [title]="social.name"
+                                [class]="social.color+' text-2xl border-2 w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#AF4E64] border-[#AF4E64] hover:text-white'" 
+                                [href]="social.link"
                             >
-                            <fa-icon [icon]="faLinkedin"></fa-icon>
-                        </a>
-                        <a class="text-blue-500  text-2xl border-2 w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#AF4E64] border-[#AF4E64] hover:text-white" 
-                            href="https://facebook.com"
-                            >
-                            <fa-icon [icon]="faFacebook"></fa-icon>
-                        </a>
-                        <a class="text-green-500  text-2xl border-2 w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#AF4E64] border-[#AF4E64] hover:text-white" 
-                            href="https://wa.me/1234567890"
-                            >
-                            <fa-icon [icon]="fawhatsapp"></fa-icon>
-                        </a>
-                        <a class="text-pink-600  text-2xl border-2 w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#AF4E64] border-[#AF4E64] hover:text-white" 
-                            href="#"
-                            >
-                            <fa-icon [icon]="fainstagram"></fa-icon>                            
-                        </a>
+                                <fa-icon [icon]="social.icon"></fa-icon>
+                            </a>
+                        }
                     </p>
                 </div>
             </div>
